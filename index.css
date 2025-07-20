@@ -1,0 +1,22 @@
+body {
+
+    background-color : rgb(76, 114, 76);
+    font-size: x-large;
+    font-family: serif;
+    color : white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction : column;
+    margin:0%;
+    padding:0%;
+}
+.clic{
+    background-color: chocolate;
+    box-shadow: 10px 15px 20px rgb(187, 99, 18);
+}
+
+.nainaccueil{
+    height : 500px;
+    width: 600px; 
+}
