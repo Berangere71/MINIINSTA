@@ -1,14 +1,47 @@
-body {
 
-    background-color:rgb(92, 17, 17);
-   
-    font-size: x-large;
+
+
+body {
     font-family: serif;
-    color : white;
-    display: flex;
+    background-color: #680303;
     align-items: center;
     justify-content: center;
-    flex-direction : column;
-    margin:0%;
-    padding:0%;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: xxx-large;
+    text-align: center;
+    color:antiquewhite;
+}
+
+.galerie {
+    display: flex; /* Utilise flexbox pour aligner les éléments en ligne */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    align-items: center; /* Centre le contenu horizontalement */
+}
+
+.fichiers {
+    display: flex; /* Utilise flexbox pour aligner les images en ligne */
+    flex-direction: column; /* Permet aux images de passer à la ligne si nécessaire */
+    justify-content: center; /* Centre les images horizontalement */
+    margin-top: 20px; /* Espace au-dessus de la galerie */
+}
+
+.fichiers img {
+    width: 300px; /* Largeur fixe pour chaque image */
+    height: auto; Hauteur automatique pour conserver le ratio
+    object-fit: contain;
+    margin: 20px; Espacement entre les images
+    border-radius: 8px; /* Coins arrondis pour les images */
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet de profondeur */
+}
+
+footer {
+
+    font-size: xx-large;
+    text-align: center;
+   margin-top: 30px;
+
 }
