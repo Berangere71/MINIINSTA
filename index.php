@@ -8,9 +8,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
         $uploads_dir = 'uploads';
         $tmp_name = $_FILES['photo']['tmp_name'];
-        $name = basename($_FILES['photo']['name']);
+        $name = time() . "_" . basename($_FILES['photo']['name']);
+
+    $allowed = ['image/jpeg', 'image/png', 'image/webp'];
+
+    if (in_array($_FILES['photo']['type'], $allowed)) {
         move_uploaded_file($tmp_name, "$uploads_dir/$name");
     }
+}
 }
 ?>
 

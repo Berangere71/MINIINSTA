@@ -1,47 +1,66 @@
-
-
-
-body {
-    font-family: serif;
-    background-color: #680303;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 20px;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-h1 {
-    font-size: xxx-large;
-    text-align: center;
-    color:antiquewhite;
+body{
+    background:#7a0000;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    min-height:100vh;
+    padding:40px;
 }
 
-.galerie {
-    display: flex; /* Utilise flexbox pour aligner les éléments en ligne */
-    flex-direction: column; /* Aligne les éléments en colonne */
-    align-items: center; /* Centre le contenu horizontalement */
+h1{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:60px;
 }
 
-.fichiers {
-    display: flex; /* Utilise flexbox pour aligner les images en ligne */
-    flex-direction: column; /* Permet aux images de passer à la ligne si nécessaire */
-    justify-content: center; /* Centre les images horizontalement */
-    margin-top: 20px; /* Espace au-dessus de la galerie */
+.fichiers{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:40px;
 }
 
-.fichiers img {
-    width: 300px; /* Largeur fixe pour chaque image */
-    height: auto; Hauteur automatique pour conserver le ratio
-    object-fit: contain;
-    margin: 20px; Espacement entre les images
-    border-radius: 8px; /* Coins arrondis pour les images */
-    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet de profondeur */
+.card{
+    background:white;
+    color:black;
+    width:300px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(0,0,0,0.4);
+    transition:0.3s;
 }
 
-footer {
+.card:hover{
+    transform:scale(1.05);
+}
 
-    font-size: xx-large;
-    text-align: center;
-   margin-top: 30px;
+.card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
 
+.card p{
+    padding:20px;
+    text-align:center;
+    line-height:1.6;
+}
+
+footer{
+    margin-top:50px;
+    text-align:center;
+}
+
+footer a{
+    text-decoration:none;
+    background:white;
+    color:#7a0000;
+    padding:15px 30px;
+    border-radius:10px;
+    font-weight:bold;
 }
