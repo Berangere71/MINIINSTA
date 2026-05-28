@@ -1,34 +1,110 @@
-body {
-
-    background-color : rgb(76, 114, 76);
-    font-size: x-large;
-    font-family: serif;
-    color : rgb(243, 237, 237);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction : column;
-    margin:5%;
-    padding:0%;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-form {
-    
-    background-color: #017001; /* Couleur de fond du formulaire */
-    padding: 20px; /* Espacement intérieur */
-    border-radius: 8px; /* Coins arrondis */
-    max-width: 400px; /* Largeur maximale du formulaire */
-    margin: auto; /* Centre le formulaire horizontalement */
-    box-shadow: 10px 15px 20px rgb(49, 136, 78);
+
+body{
+    background:linear-gradient(135deg,#355e3b,#1f3a24);
+    font-size:20px;
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    min-height:100vh;
+    padding:40px;
+}
+
+h1{
+    font-size:70px;
+    margin-bottom:10px;
+}
+
+h2{
+    margin-bottom:30px;
 }
 
 .nainaccueil{
-    height : 400px;
-    width: 500px; 
+    height:400px;
+    width:400px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    margin-bottom:40px;
 }
-footer {
 
-    padding:5%;
+form{
+    background:#ffffff;
+    color:black;
+    padding:30px;
+    border-radius:20px;
+    width:100%;
+    max-width:400px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
 
+input{
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+}
 
-    
+input[type="submit"]{
+    background:#355e3b;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+input[type="submit"]:hover{
+    background:#1f3a24;
+}
+
+footer{
+    margin-top:30px;
+}
+
+footer a{
+    text-decoration:none;
+    background:white;
+    color:#355e3b;
+    padding:15px 25px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.message{
+    background:white;
+    color:green;
+    padding:10px 20px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+@media screen and (max-width:768px){
+
+    h1{
+        font-size:45px;
+        text-align:center;
+    }
+
+    h2{
+        text-align:center;
+    }
+
+    .nainaccueil{
+        width:90%;
+        height:auto;
+    }
+
+    form{
+        width:90%;
+    }
+
 }

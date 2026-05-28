@@ -1,39 +1,51 @@
+<?php
+// Récupérer le prénom
+$prenom = isset($_POST["prenom"])
+    ? htmlspecialchars($_POST["prenom"])
+    : "Anonyme";
 
-        <?php
-          // Récupérer le prénom
-          $prenom = isset($_POST["prenom"])
-            ? htmlspecialchars($_POST["prenom"])
-            : "Anonyme";
-    
-        // Récupérer la date du jour
-        $date = date('d-m-Y'); // Format de date : jour-mois-année
+// Récupérer la date du jour
+$date = date('d-m-Y'); // Format de date : jour-mois-année
 
-            function lire_dossier() {
-                $file_names = [];
-                if (is_dir("uploads")) {
-                    
-                    $uploads_dir = opendir("uploads");
+if (isset($_POST['delete'])) {
 
-                    while (($file_name = readdir($uploads_dir)) !== false) {
+    $file_to_delete = "uploads/" . basename($_POST['delete']);
 
-                        if ($file_name != "." && $file_name != "..") {
-                            $file_names[] = $file_name; // J'ajoute le nom du fichier à la liste
-                        }
-                    }
+    if (file_exists($file_to_delete)) {
 
-                    closedir($uploads_dir);
+        unlink($file_to_delete);
+    }
+}
 
-                } 
+function lire_dossier()
+{
+    $file_names = [];
+    if (is_dir("uploads")) {
 
-                return $file_names;
+        $uploads_dir = opendir("uploads");
+
+        while (($file_name = readdir($uploads_dir)) !== false) {
+
+            if ($file_name != "." && $file_name != "..") {
+                $file_names[] = $file_name; // J'ajoute le nom du fichier à la liste
             }
 
-            $liste_des_fichiers = lire_dossier();
-      
-        ?>
-     
-        <div class="fichiers">
-    <!DOCTYPE html>
+        }
+
+        closedir($uploads_dir);
+
+    }
+
+    return $file_names;
+}
+
+$liste_des_fichiers = lire_dossier();
+$date = date('d-m-Y');
+
+?>
+
+
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -48,26 +60,35 @@
     <h1>Galerie Photos</h1>
 
     <div class="fichiers">
-
         <?php foreach ($liste_des_fichiers as $file_name): ?>
+
+            <?php $auteur = explode("_", $file_name)[0]; ?>
 
             <div class="card">
 
-                <img src="uploads/<?php echo $file_name; ?>" 
-                     alt="<?php echo $file_name; ?>">
+                <img src="uploads/<?php echo $file_name; ?>" alt="<?php echo $file_name; ?>">
 
                 <p>
-                    👤 <?php echo $prenom; ?>
+                    👤 <?php echo $auteur; ?>
                     <br>
                     📅 <?php echo $date; ?>
                     <br>
                     📷 <?php echo $file_name; ?>
                 </p>
 
+                <form method="POST">
+
+                    <input type="hidden" name="delete" value="<?php echo $file_name; ?>">
+
+                    <button type="submit" class="delete-btn">
+                        Supprimer
+                    </button>
+
+                </form>-
+
             </div>
 
         <?php endforeach; ?>
-
     </div>
 
     <footer>
@@ -75,4 +96,5 @@
     </footer>
 
 </body>
+
 </html>
