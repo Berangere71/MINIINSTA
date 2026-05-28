@@ -57,8 +57,10 @@ h1{
 
 .delete-btn {
 
-    display : flex;
-    justify-content: center;
+    display: block;
+    margin: 20px auto;
+
+    padding: 10px 20px;
 
     border: none;
     border-radius: 10px;
